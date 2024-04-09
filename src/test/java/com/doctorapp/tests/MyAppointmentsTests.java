@@ -1,6 +1,5 @@
-package com.doctorapp.tests.User;
+package com.doctorapp.tests;
 
-import com.doctorapp.tests.User.TestBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
@@ -12,10 +11,9 @@ public class MyAppointmentsTests extends TestBase {
     @BeforeMethod
     public void precondition() {
 
-        click(By.cssSelector(".p-3:nth-child(1) > strong"));
-        type(By.id("formLoginEmail"), "iv_ivanov@gm.com");
-        type(By.id("formLoginPassword"), "123S!fghjk");
-        click(By.cssSelector(".w-100"));
+        clickOnSignInLink();
+        fillLoginDate();
+        clickOnSignUpButton();
         click(By.cssSelector(".nav-item:nth-child(1) > .\\\"nav-link"));
     }
 

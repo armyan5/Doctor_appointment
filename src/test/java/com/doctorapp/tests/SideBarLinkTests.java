@@ -1,4 +1,4 @@
-package com.doctorapp.tests.User;
+package com.doctorapp.tests;
 
 import org.openqa.selenium.By;
 import org.testng.Assert;
@@ -10,15 +10,14 @@ public class SideBarLinkTests extends TestBase {
     @BeforeMethod
     public void precondition() {
 
-        click(By.cssSelector(".p-3:nth-child(1) > strong"));
-        type(By.id("formLoginEmail"),"iv_ivanov@gm.com");
-        type(By.id("formLoginPassword"),"123S!fghjk");
-        click(By.cssSelector(".w-100"));
+        clickOnSignInLink();
+        fillLoginDate();
+        clickOnSignUpButton();
     }
 
     @Test
     public void profileLinkTest() {
-        click(By.cssSelector(".nav-item:nth-child(2) > .\\\"nav-link"));
+        clickOnProfileLink();
         Assert.assertTrue(isElementPresent(By.cssSelector(".my-4:nth-child(1)")));
     }
 

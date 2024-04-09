@@ -1,4 +1,4 @@
-package com.doctorapp.tests.User;
+package com.doctorapp.tests;
 
 import org.openqa.selenium.By;
 import org.testng.Assert;
@@ -10,10 +10,9 @@ public class UpcomingAppointmentTests extends TestBase {
 
     @BeforeMethod
     public void precondition() {
-        click(By.cssSelector(".p-3:nth-child(1) > strong"));
-        type(By.id("formLoginEmail"), "iv_ivanov@gm.com");
-        type(By.id("formLoginPassword"), "123S!fghjk");
-        click(By.cssSelector(".w-100"));
+        clickOnSignInLink();
+        fillLoginDate();
+        clickOnSignUpButton();
 
     }
 
