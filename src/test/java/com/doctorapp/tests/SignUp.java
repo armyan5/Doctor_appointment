@@ -1,16 +1,29 @@
 package com.doctorapp.tests;
 
 public class SignUp {
-    private final String firstName;
-    private final String lastName;
-    private final String email;
-    private final String password;
+    private  String firstName;
+    private  String lastName;
+    private  String email;
+    private  String password;
 
-    public SignUp(String firstName, String lastName, String email, String password) {
+    public SignUp setFirstName(String firstName) {
         this.firstName = firstName;
+        return this;
+    }
+
+    public SignUp setLastName(String lastName) {
         this.lastName = lastName;
+        return this;
+    }
+
+    public SignUp setEmail(String email) {
         this.email = email;
+        return this;
+    }
+
+    public SignUp setPassword(String password) {
         this.password = password;
+        return this;
     }
 
     public String getFirstName() {

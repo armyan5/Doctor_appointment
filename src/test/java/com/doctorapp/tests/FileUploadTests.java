@@ -1,6 +1,5 @@
 package com.doctorapp.tests;
 
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -17,12 +16,11 @@ public class FileUploadTests extends TestBase {
 
     }
 
-
     @Test
     public void photoUploadTest() {
-        driver.findElement(By.id("photoFile")).sendKeys("C:/Users/AIT TR Student/Desktop/patient.jpg");
+        uploadPhotoUser();
         scrollAndClikSave();
-        Assert.assertTrue(isElementPresent(By.cssSelector(".profile_photo__file__view > img")));
+        Assert.assertTrue(isPhotoPresent());
 
     }
 

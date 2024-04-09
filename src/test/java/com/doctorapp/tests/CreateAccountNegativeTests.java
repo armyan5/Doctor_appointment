@@ -4,7 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class CreateAccountTests extends TestBase {
+public class CreateAccountNegativeTests extends TestBase{
 
     @BeforeMethod
     public void ensurePrecondition() {
@@ -13,20 +13,6 @@ public class CreateAccountTests extends TestBase {
         }
     }
 
-    @Test
-    public void createNewAccountPositiveTest() {
-
-        clickOnSignUpLink();
-
-        fillSignUpRegisterForm(new SignUp()
-                .setFirstName("Test")
-                .setLastName("Testovich")
-                .setEmail("Testovich@gm.com")
-                .setPassword("Testovich123?"));
-        clickOnSignUpButton();
-        Assert.assertTrue(isLogOutLinkPresent());
-
-    }
 
     @Test
     public void newExistAccountNegativeTestWithWrongEmail() {
@@ -84,4 +70,56 @@ public class CreateAccountTests extends TestBase {
         Assert.assertTrue(isErrorTextPresent());
     }
 
+    @Test
+    public void newExistAccountWithNullFirstName() {
+
+        clickOnSignUpLink();
+        fillSignUpRegisterForm(new SignUp()
+                .setFirstName("    ")
+                .setLastName("Testovich")
+                .setEmail("Testovich@gm.com")
+                .setPassword("Testovich123$"));
+        clickOnSignUpButton();
+        Assert.assertTrue(isSignUpButtonPresent());
+    }
+
+    @Test
+    public void newExistAccountWithNullLastName() {
+
+        clickOnSignUpLink();
+        fillSignUpRegisterForm(new SignUp()
+                .setFirstName("Test")
+                .setLastName("      ")
+                .setEmail("Testovich@gm.com")
+                .setPassword("Testovich123$"));
+        clickOnSignUpButton();
+        Assert.assertTrue(isSignUpButtonPresent());
+    }
+
+    @Test
+    public void newExistAccountWithNullEmail() {
+
+        clickOnSignUpLink();
+        fillSignUpRegisterForm(new SignUp()
+                .setFirstName("Test")
+                .setLastName("Testovich")
+                .setEmail("        ")
+                .setPassword("Testovich123$"));
+        clickOnSignUpButton();
+        Assert.assertTrue(isSignUpButtonPresent());
+    }
+
+
+    @Test
+    public void newExistAccountWithNullPassword() {
+
+        clickOnSignUpLink();
+        fillSignUpRegisterForm(new SignUp()
+                .setFirstName("Test")
+                .setLastName("Testovich")
+                .setEmail("Testovich@gm.com")
+                .setPassword("       "));
+        clickOnSignUpButton();
+        Assert.assertTrue(isSignUpButtonPresent());
+    }
 }

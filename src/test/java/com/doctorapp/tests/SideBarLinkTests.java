@@ -1,6 +1,5 @@
 package com.doctorapp.tests;
 
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -9,7 +8,6 @@ public class SideBarLinkTests extends TestBase {
 
     @BeforeMethod
     public void precondition() {
-
         clickOnSignInLink();
         fillLoginDate();
         clickOnSignUpButton();
@@ -18,21 +16,20 @@ public class SideBarLinkTests extends TestBase {
     @Test
     public void profileLinkTest() {
         clickOnProfileLink();
-        Assert.assertTrue(isElementPresent(By.cssSelector(".my-4:nth-child(1)")));
+        Assert.assertTrue(isMyProfilePresent());
     }
 
 
     @Test
     public void myAppointmentsLinkTest() {
-        click(By.cssSelector(".nav-item:nth-child(1) > .\\\"nav-link"));
-        Assert.assertTrue(isElementPresent(By.cssSelector(".text-primary")));
+        clickOnMyAppointmentsLink();
+        Assert.assertTrue(isAppointPagePresent());
     }
 
 
     @Test
     public void upcomingAppointmentsTest() {
-        Assert.assertTrue(isElementPresent(By.cssSelector(".text-primary")));
+        Assert.assertTrue(isAppointPagePresent());
     }
-
 }
 
