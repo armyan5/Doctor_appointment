@@ -9,18 +9,18 @@ public class FileUploadTests extends TestBase {
 
     @BeforeMethod
     public void precondition() {
-        clickOnSignInLink();
-        fillLoginDate();
-        clickOnSignUpButton();
-        clickOnProfileLink();
+        app.getUser().clickOnSignInLink();
+        app.getUser().fillLoginDate();
+        app.getUser().clickOnSignUpButton();
+        app.getDashboard().clickOnProfileLink();
 
     }
 
     @Test
     public void photoUploadTest() {
-        uploadPhotoUser();
-        scrollAndClikSave();
-        Assert.assertTrue(isPhotoPresent());
+        app.getDashboard().uploadPhotoUser();
+        app.getDashboard().scrollAndClikSave();
+        Assert.assertTrue(app.getDashboard().isPhotoPresent());
 
     }
 

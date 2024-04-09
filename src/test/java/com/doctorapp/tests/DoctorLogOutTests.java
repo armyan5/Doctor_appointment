@@ -8,15 +8,15 @@ public class DoctorLogOutTests extends TestBase {
 
     @BeforeMethod
     public void precondition() {
-        clickOnSignInLink();
-        fillDoctorLoginData();
-        clickOnSignUpButton();
+        app.getUser().clickOnSignInLink();
+        app.getDoctor().fillDoctorLoginData();
+        app.getUser().clickOnSignUpButton();
     }
 
     @Test
     public void LogOutPositiveTest() {
-        clickOnSignOutButton();
-        Assert.assertTrue(isSignInButtonPresent());
+        app.getUser().clickOnSignOutButton();
+        Assert.assertTrue(app.getHomePage().isSignInButtonPresent());
 
     }
 

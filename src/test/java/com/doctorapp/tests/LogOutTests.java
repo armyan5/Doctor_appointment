@@ -8,15 +8,15 @@ public class LogOutTests extends TestBase {
 
     @BeforeMethod
     public void precondition() {
-        clickOnSignInLink();
-        fillLoginDate();
-        clickOnSignUpButton();
+        app.getUser().clickOnSignInLink();
+        app.getUser().fillLoginDate();
+        app.getUser().clickOnSignUpButton();
     }
 
     @Test
     public void LogOutPositiveTest() {
-        clickOnSignOutButton();
-        Assert.assertTrue(isSignInButtonPresent());
+        app.getUser().clickOnSignOutButton();
+        Assert.assertTrue(app.getHomePage().isSignInButtonPresent());
 
     }
 }

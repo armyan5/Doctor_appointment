@@ -8,28 +8,28 @@ public class SideBarLinkTests extends TestBase {
 
     @BeforeMethod
     public void precondition() {
-        clickOnSignInLink();
-        fillLoginDate();
-        clickOnSignUpButton();
+        app.getUser().clickOnSignInLink();
+        app.getUser().fillLoginDate();
+        app.getUser().clickOnSignUpButton();
     }
 
     @Test
     public void profileLinkTest() {
-        clickOnProfileLink();
-        Assert.assertTrue(isMyProfilePresent());
+        app.getDashboard().clickOnProfileLink();
+        Assert.assertTrue(app.getDashboard().isMyProfilePresent());
     }
 
 
     @Test
     public void myAppointmentsLinkTest() {
-        clickOnMyAppointmentsLink();
-        Assert.assertTrue(isAppointPagePresent());
+        app.getDashboard().clickOnMyAppointmentsLink();
+        Assert.assertTrue(app.getDashboard().isAppointPagePresent());
     }
 
 
     @Test
     public void upcomingAppointmentsTest() {
-        Assert.assertTrue(isAppointPagePresent());
+        Assert.assertTrue(app.getDashboard().isAppointPagePresent());
     }
 }
 

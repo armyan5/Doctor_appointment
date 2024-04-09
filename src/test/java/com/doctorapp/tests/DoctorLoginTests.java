@@ -8,10 +8,10 @@ public class DoctorLoginTests extends TestBase {
     @Test
     public void loginPositiveTest() {
 
-        clickOnSignInLink();
-        fillDoctorLoginData();
-        clickOnSignUpButton();
-        Assert.assertTrue(isLogOutLinkPresent());
+        app.getUser().clickOnSignInLink();
+        app.getDoctor().fillDoctorLoginData();
+        app.getUser().clickOnSignUpButton();
+        Assert.assertTrue(app.getUser().isLogOutLinkPresent());
     }
 
 

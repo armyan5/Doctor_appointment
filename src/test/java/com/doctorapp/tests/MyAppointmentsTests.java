@@ -8,22 +8,22 @@ public class MyAppointmentsTests extends TestBase {
 
     @BeforeMethod
     public void precondition() {
-        clickOnSignInLink();
-        fillLoginDate();
-        clickOnSignUpButton();
-        clickOnMyAppointmentsLink();
+        app.getUser().clickOnSignInLink();
+        app.getUser().fillLoginDate();
+        app.getUser().clickOnSignUpButton();
+        app.getDashboard().clickOnMyAppointmentsLink();
     }
 
 
     @Test
     public void addNewAppointmentsTest() {
-        clickOnAddNewButton();
-        clickOnData();
-        fieldData();
-        chooseDoctor();
-        chooseTime();
-        clickOnSaveButton();
-        Assert.assertTrue(isMyAppointmentsPresent());
+        app.getDashboard().clickOnAddNewButton();
+        app.getDashboard().clickOnData();
+        app.getDashboard().fieldData();
+        app.getDashboard().chooseDoctor();
+        app.getDashboard().chooseTime();
+        app.getDashboard().clickOnSaveButton();
+        Assert.assertTrue(app.getDashboard().isMyAppointmentsPresent());
 
     }
 

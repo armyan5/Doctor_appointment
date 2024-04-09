@@ -1,5 +1,6 @@
 package com.doctorapp.tests;
 
+import com.doctorapp.fw.UserHelper;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -8,38 +9,38 @@ public class LoginNegativeTests extends TestBase{
 
     @Test
     public void loginNegativeTestWithNotValidMail() {
-        clickOnSignInLink();
-        type(By.id("formLoginEmail"), "iv_ivan@gmail.com");
-        type(By.id("formLoginPassword"), password());
-        clickOnSignUpButton();
-        Assert.assertTrue(isAlertWindowPresent());
+        app.getUser().clickOnSignInLink();
+        app.getUser().type(By.id("formLoginEmail"), "iv_ivan@gmail.com");
+        app.getUser().type(By.id("formLoginPassword"), UserHelper.password());
+        app.getUser().clickOnSignUpButton();
+        Assert.assertTrue(app.getDashboard().isAlertWindowPresent());
     }
 
 
     @Test
     public void loginNegativeTestWithNotValidPassword() {
-        clickOnSignInLink();
-        type(By.id("formLoginEmail"), email());
-        type(By.id("formLoginPassword"), "123S!Csak");
-        clickOnSignUpButton();
-        Assert.assertTrue(isAlertWindowPresent());
+        app.getUser().clickOnSignInLink();
+        app.getUser().type(By.id("formLoginEmail"), UserHelper.email());
+        app.getUser().type(By.id("formLoginPassword"), "123S!Csak");
+        app.getUser().clickOnSignUpButton();
+        Assert.assertTrue(app.getDashboard().isAlertWindowPresent());
     }
 
     @Test
     public void loginNegativeTestWithNullMail() {
-        clickOnSignInLink();
-        type(By.id("formLoginEmail"), "    ");
-        type(By.id("formLoginPassword"), password());
-        clickOnSignUpButton();
-        Assert.assertTrue(isAlertWindowPresent());
+        app.getUser().clickOnSignInLink();
+        app.getUser().type(By.id("formLoginEmail"), "    ");
+        app.getUser().type(By.id("formLoginPassword"), UserHelper.password());
+        app.getUser().clickOnSignUpButton();
+        Assert.assertTrue(app.getDashboard().isAlertWindowPresent());
     }
 
     @Test
     public void loginNegativeTestWithNullPassword() {
-        clickOnSignInLink();
-        type(By.id("formLoginEmail"), "iv_ivanov@gmail.com");
-        type(By.id("formLoginPassword"), "         ");
-        clickOnSignUpButton();
-        Assert.assertTrue(isAlertWindowPresent());
+        app.getUser().clickOnSignInLink();
+        app.getUser().type(By.id("formLoginEmail"), "iv_ivanov@gmail.com");
+        app.getUser().type(By.id("formLoginPassword"), "         ");
+        app.getUser().clickOnSignUpButton();
+        Assert.assertTrue(app.getDashboard().isAlertWindowPresent());
     }
 }

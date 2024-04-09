@@ -1,4 +1,4 @@
-package com.doctorapp.tests;
+package com.doctorapp.models;
 
 public class User {
 

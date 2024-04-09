@@ -8,23 +8,23 @@ public class DoctorUpcomingAppointmentTests extends TestBase {
 
     @BeforeMethod
     public void precondition() {
-        clickOnSignInLink();
-        fillDoctorLoginData();
-        clickOnSignUpButton();
+        app.getUser().clickOnSignInLink();
+        app.getDoctor().fillDoctorLoginData();
+        app.getUser().clickOnSignUpButton();
 
     }
 
     @Test
     public void upcomingAppointmentViewTest() {
-        clickOnUpcomingAppLink();
-        clickOnViewButton();
-        Assert.assertTrue(isUpcomingAppPresent());
+        app.getDashboard().clickOnUpcomingAppLink();
+        app.getDashboard().clickOnViewButton();
+        Assert.assertTrue(app.getDashboard().isUpcomingAppPresent());
     }
 
     @Test
     public void doctorUpcomingAppointmentEditTest() {
-        editUpcomingAppointmentsData();
-        Assert.assertTrue(isEditElementPresent());
+        app.getDashboard().editUpcomingAppointmentsData();
+        Assert.assertTrue(app.getDashboard().isEditElementPresent());
     }
 
 }

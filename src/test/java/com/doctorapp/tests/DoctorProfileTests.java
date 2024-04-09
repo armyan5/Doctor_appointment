@@ -9,17 +9,17 @@ public class DoctorProfileTests extends TestBase {
 
     @BeforeMethod
     public void precondition() {
-        clickOnSignInLink();
-        fillDoctorLoginData();
-        clickOnSignUpButton();
+        app.getUser().clickOnSignInLink();
+        app.getDoctor().fillDoctorLoginData();
+        app.getUser().clickOnSignUpButton();
     }
 
     @Test
     public void editProfileTests() {
-        clickOnProfileLink();
-        fillDoctorProfileForm();
-        scrollAndClikSave();
-        Assert.assertTrue(isMyProfilePresent());
+        app.getDashboard().clickOnProfileLink();
+        app.getDoctor().fillDoctorProfileForm();
+        app.getDashboard().scrollAndClikSave();
+        Assert.assertTrue(app.getDashboard().isMyProfilePresent());
 
     }
 
