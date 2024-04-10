@@ -16,9 +16,7 @@ public class CreateAccountTests extends TestBase {
 
     @Test
     public void createNewAccountPositiveTest() {
-
         app.getUser().clickOnSignUpLink();
-
         app.getUser().fillSignUpRegisterForm(new SignUp()
                 .setFirstName("Test")
                 .setLastName("Testovich")
@@ -27,62 +25,6 @@ public class CreateAccountTests extends TestBase {
         app.getUser().clickOnSignUpButton();
         Assert.assertTrue(app.getUser().isLogOutLinkPresent());
 
-    }
-
-    @Test
-    public void newExistAccountNegativeTestWithWrongEmail() {
-
-        app.getUser().clickOnSignUpLink();
-        app.getUser().fillSignUpRegisterForm(new SignUp()
-                .setFirstName("Test")
-                .setLastName("Testovich")
-                .setEmail("Testovich")
-                .setPassword("Testovich123$"));
-        app.getUser().clickOnSignUpButton();
-        Assert.assertTrue(app.getUser().isSignUpButtonPresent());
-
-    }
-
-
-    @Test
-    public void newExistAccountNegativeTestWithWrongPassword() {
-
-        app.getUser().clickOnSignUpLink();
-        app.getUser().fillSignUpRegisterForm(new SignUp()
-                .setFirstName("Test")
-                .setLastName("Testovich")
-                .setEmail("Testovich@gm.com")
-                .setPassword("Testovich"));
-        app.getUser().clickOnSignUpButton();
-        Assert.assertTrue(app.getUser().isSignUpButtonPresent());
-
-    }
-
-    @Test
-    public void newExistAccountNegativeTestWithWrongFirstName() {
-
-        app.getUser().clickOnSignUpLink();
-        app.getUser().fillSignUpRegisterForm(new SignUp()
-                .setFirstName("1231234")
-                .setLastName("Testovich")
-                .setEmail("Testovich@gm.com")
-                .setPassword("Testovich123$"));
-        app.getUser().clickOnSignUpButton();
-        Assert.assertTrue(app.getUser().isSignUpButtonPresent());
-
-    }
-
-    @Test
-    public void newExistAccountWithSameData() {
-
-        app.getUser().clickOnSignUpLink();
-        app.getUser().fillSignUpRegisterForm(new SignUp()
-                .setFirstName("Test")
-                .setLastName("Testovich")
-                .setEmail("Testovich@gm.com")
-                .setPassword("Testovich123$"));
-        app.getUser().clickOnSignUpButton();
-        Assert.assertTrue(app.getUser().isErrorTextPresent());
     }
 
 }

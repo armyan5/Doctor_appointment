@@ -8,7 +8,6 @@ public class DoctorMyAppointmentsTests extends TestBase {
 
     @BeforeMethod
     public void precondition() {
-
         app.getUser().clickOnSignInLink();
         app.getDoctor().fillDoctorLoginData();
         app.getUser().clickOnSignUpButton();

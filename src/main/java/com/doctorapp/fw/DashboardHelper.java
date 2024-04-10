@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class DashboardHelper extends BaseHelper{
+public class DashboardHelper extends BaseHelper {
     public DashboardHelper(WebDriver driver) {
         super(driver);
     }
@@ -12,7 +12,6 @@ public class DashboardHelper extends BaseHelper{
     public boolean isAlertWindowPresent() {
         return isElementPresent(By.cssSelector(".modal-header"));
     }
-
 
 
     public void clickOnProfileLink() {
@@ -27,7 +26,7 @@ public class DashboardHelper extends BaseHelper{
     public void editAppointmentData() {
         click(By.cssSelector(".nav-item:nth-child(1) > .\\\"nav-link"));
         click(By.cssSelector("tr:nth-child(1) a > .mx-1"));
-        driver.findElement(By.name("appointmentDate")).sendKeys("19 4 2024");
+        driver.findElement(By.name("appointmentDate")).sendKeys("18 4 2024");
         click(By.cssSelector(".form-check:nth-child(7) > .form-check-label"));
         scroll(By.cssSelector(".btn-primary"));
         click(By.cssSelector(".btn-primary"));
@@ -35,8 +34,8 @@ public class DashboardHelper extends BaseHelper{
 
     public void editUpcomingAppointmentsData() {
         click(By.cssSelector(".appcard:nth-child(1) .mx-1"));
-        driver.findElement(By.name("appointmentDate")).sendKeys("12 4 2024");
-        click(By.cssSelector(".form-check:nth-child(4) > .form-check-label"));
+        driver.findElement(By.name("appointmentDate")).sendKeys("18 4 2024");
+        click(By.cssSelector(".form-check:nth-child(5) > .form-check-label"));
         scroll(By.cssSelector(".btn-primary"));
         click(By.cssSelector(".btn-primary"));
     }

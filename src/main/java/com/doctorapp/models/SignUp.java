@@ -1,10 +1,10 @@
 package com.doctorapp.models;
 
 public class SignUp {
-    private  String firstName;
-    private  String lastName;
-    private  String email;
-    private  String password;
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String password;
 
     public SignUp setFirstName(String firstName) {
         this.firstName = firstName;

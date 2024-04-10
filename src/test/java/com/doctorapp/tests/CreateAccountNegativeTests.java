@@ -5,7 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class CreateAccountNegativeTests extends TestBase{
+public class CreateAccountNegativeTests extends TestBase {
 
     @BeforeMethod
     public void ensurePrecondition() {

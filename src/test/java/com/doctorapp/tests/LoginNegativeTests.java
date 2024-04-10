@@ -3,9 +3,17 @@ package com.doctorapp.tests;
 import com.doctorapp.fw.UserHelper;
 import org.openqa.selenium.By;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class LoginNegativeTests extends TestBase{
+public class LoginNegativeTests extends TestBase {
+
+    @BeforeMethod
+    public void ensurePrecondition() {
+        if (!app.getUser().isSignUpLinkPresent()) {
+            app.getUser().clickOnSignOutButton();
+        }
+    }
 
     @Test
     public void loginNegativeTestWithNotValidMail() {
